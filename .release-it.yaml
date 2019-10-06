@@ -1,7 +1,3 @@
-hooks:
-  before:init:
-    - yarn lint
-    - yarn test
 git:
   commit: true
   commitMessage: Release ${version}
