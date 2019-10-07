@@ -8,6 +8,6 @@
     "release": "release-it"
   },
   "devDependencies": {
-    "release-it": "^12.4.2"
+    "shipjs": "^0.6.0"
   }
 }
