@@ -5,9 +5,10 @@
   "author": "Daichi Kimura <dkimura@bdd.xyz>",
   "license": "MIT",
   "scripts": {
-    "release": "release-it"
+    "release:prepare": "shipjs prepare",
+    "release:trigger": "shipjs trigger"
   },
   "devDependencies": {
-    "release-it": "^12.4.2"
+    "shipjs": "^0.6.0"
   }
 }
