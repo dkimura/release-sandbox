@@ -1,0 +1,66 @@
+version: 2.1
+
+executors:
+  default:
+    parameters:
+      node_version:
+        type: string
+    docker:
+      - image: circleci/node:<<parameters.node_version>>-browsers
+    working_directory: ~/relase-sandbox
+
+commands:
+  yarn_install:
+    parameters:
+      node_version:
+        type: string
+    steps:
+      - restore_cache:
+          keys:
+            - v1-node-modules-<<parameters.node_version>>-{{ checksum "package.json" }}
+      - restore_cache:
+          keys:
+            - v1-yarn-cache-<<parameters.node_version>>-{{ checksum "yarn.lock" }}
+      - run:
+          name: Nodejs information
+          command: |
+            echo "Node $(node -v)"
+            echo "Yarn v$(yarn --version)"
+      - run:
+          name: Install dependencies
+          command: |
+            yarn install --cache-folder ~/.cache/yarn
+      - save_cache:
+          key: v1-yarn-cache-<<parameters.node_version>>-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - save_cache:
+          key: v1-node-modules-<<parameters.node_version>>-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+
+jobs:
+  release:
+    parameters:
+      node_version:
+        type: string
+    executor:
+      name: default
+      node_version: <<parameters.node_version>>
+    steps:
+      - checkout
+      - yarn_install:
+          node_version: <<parameters.node_version>>
+      - run:
+          name: Run ShipJS
+          command: yarn release:trigger
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - release:
+          node_version: "lts"
+          filters:
+            branches:
+              only: master
