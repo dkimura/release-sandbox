@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "test": "echo test",
+    "build": "echo build",
     "release:prepare": "shipjs prepare",
     "release:trigger": "shipjs trigger"
   },
