@@ -5,6 +5,7 @@
   "author": "Daichi Kimura <dkimura@bdd.xyz>",
   "license": "MIT",
   "scripts": {
+    "test": "echo test",
     "release:prepare": "shipjs prepare",
     "release:trigger": "shipjs trigger"
   },
