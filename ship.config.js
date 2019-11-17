@@ -1,3 +1,3 @@
 module.exports = {
-  publishCommand: () => undefined
+  publishCommand: () => "echo publish"
 };
