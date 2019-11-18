@@ -1,3 +1,12 @@
+## [1.3.3](https://github.com/dkimura/release-sandbox/compare/v1.3.2...v1.3.3) (2019-11-18)
+
+
+### Bug Fixes
+
+* Replace hub install command ([0f0757c](https://github.com/dkimura/release-sandbox/commit/0f0757c4b0d7e2f5bd0ca004690aa329c466440d))
+
+
+
 ## [1.3.2](https://github.com/dkimura/release-sandbox/compare/v1.3.1...v1.3.2) (2019-11-18)
 
 
