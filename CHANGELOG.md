@@ -1,3 +1,12 @@
+## [1.3.1](https://github.com/dkimura/release-sandbox/compare/v1.3.0...v1.3.1) (2019-11-18)
+
+
+### Bug Fixes
+
+* install homebrew ([#26](https://github.com/dkimura/release-sandbox/issues/26)) ([5c85304](https://github.com/dkimura/release-sandbox/commit/5c85304ec666fc361c30b6406bfdd733db8ff7aa))
+
+
+
 # [1.3.0](https://github.com/dkimura/release-sandbox/compare/v1.2.0...v1.3.0) (2019-11-18)
 
 
