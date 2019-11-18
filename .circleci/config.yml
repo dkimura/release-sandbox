@@ -43,11 +43,9 @@ commands:
       - run:
           name: Install hub cli
           command: |
-            sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-            echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>~/.profile
-            eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-            brew install hub
-            hub --help
+            curl -sSLf https://github.com/github/hub/releases/download/v2.8.3/hub-linux-amd64-2.8.3.tgz | \
+            tar zxf - --strip-components=1 -C /tmp/ && \
+            mv /tmp/bin/hub /usr/local/bin/hub
 
 jobs:
   release:
