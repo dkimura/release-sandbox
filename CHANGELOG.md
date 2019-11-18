@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/dkimura/release-sandbox/compare/v1.1.0...v1.2.0) (2019-11-18)
+
+
+### Features
+
+* Add console log hoge ([c8370a0](https://github.com/dkimura/release-sandbox/commit/c8370a07d49baac8595a50f00228a99a95b73165))
+
+
+
 # [1.1.0](https://github.com/dkimura/release-sandbox/compare/v1.0.1...v1.1.0) (2019-11-18)
 
 
