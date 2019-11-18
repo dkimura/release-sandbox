@@ -44,6 +44,7 @@ commands:
           name: Install hub cli
           command: |
             sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+            echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>~/.profile
             eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
             brew install hub
 
