@@ -38,6 +38,14 @@ commands:
           key: v1-node-modules-<<parameters.node_version>>-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+  hub_install:
+    steps:
+      - run:
+          name: Install hub cli
+          command: |
+            sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+            eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+            brew install hub
 
 jobs:
   release:
@@ -51,6 +59,7 @@ jobs:
       - checkout
       - yarn_install:
           node_version: <<parameters.node_version>>
+      - hub_install
       - run:
           name: Run ShipJS
           command: yarn release:trigger
