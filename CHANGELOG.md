@@ -1,3 +1,17 @@
+# [1.4.0](https://github.com/dkimura/release-sandbox/compare/v1.3.2...v1.4.0) (2019-12-18)
+
+
+### Bug Fixes
+
+* Replace hub install command ([0f0757c](https://github.com/dkimura/release-sandbox/commit/0f0757c4b0d7e2f5bd0ca004690aa329c466440d))
+
+
+### Features
+
+* Remove hoge ([#32](https://github.com/dkimura/release-sandbox/issues/32)) ([808b936](https://github.com/dkimura/release-sandbox/commit/808b936dd15a335279260ca2328ce1de839de611))
+
+
+
 ## [1.3.3](https://github.com/dkimura/release-sandbox/compare/v1.3.2...v1.3.3) (2019-11-18)
 
 
