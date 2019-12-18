@@ -38,14 +38,6 @@ commands:
           key: v1-node-modules-<<parameters.node_version>>-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-  hub_install:
-    steps:
-      - run:
-          name: Install hub cli
-          command: |
-            curl -sSLf https://github.com/github/hub/releases/download/v2.8.3/hub-linux-amd64-2.8.3.tgz | \
-            tar zxf - --strip-components=1 -C /tmp/ && \
-            mv /tmp/bin/hub /usr/local/bin/hub
 
 jobs:
   release:
@@ -59,7 +51,6 @@ jobs:
       - checkout
       - yarn_install:
           node_version: <<parameters.node_version>>
-      - hub_install
       - run:
           name: Run ShipJS
           command: yarn release:trigger
