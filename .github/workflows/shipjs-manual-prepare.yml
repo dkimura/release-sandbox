@@ -48,3 +48,10 @@ jobs:
       - run: yarn release:prepare --yes --no-browse
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+  create_fail_comment:
+    if: cancelled() || failure()
+    needs: manual_prepare
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hoge"
