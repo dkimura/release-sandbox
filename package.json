@@ -11,6 +11,6 @@
     "release:trigger": "shipjs trigger"
   },
   "devDependencies": {
-    "shipjs": "0.11.3"
+    "shipjs": "0.12.1"
   }
 }
