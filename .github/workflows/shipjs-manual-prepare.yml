@@ -4,12 +4,12 @@ on: deployment
 jobs:
   manual_prepare:
     runs-on: Ubuntu-latest
+    if: github.event.deployment.description != 'Heroku'
     steps:
       - name: Skip for Heroku deployments
         env:
           DESC: ${{ github.event.deployment.description }}
-        # run: echo "$DESC"
-        if: $DESC != "Heroku"
+        run: echo "$DESC"
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
