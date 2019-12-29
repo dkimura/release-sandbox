@@ -3,8 +3,9 @@ name: Ship js Manual Prepare
 on: deployment
 jobs:
   manual_prepare:
+    if: |
+      github.event.deployment.description != 'Heroku'
     runs-on: Ubuntu-latest
-    if: github.event.deployment.description != 'Heroku'
     steps:
       - name: Skip for Heroku deployments
         env:
