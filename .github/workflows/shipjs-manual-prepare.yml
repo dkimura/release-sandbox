@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Heroku?
         env:
-          DESC: ${github.event.deployment.description}
+          DESC: ${{ github.event.deployment.description }}
         run: echo "$DESC"
       - name: Dump GitHub context
         env:
