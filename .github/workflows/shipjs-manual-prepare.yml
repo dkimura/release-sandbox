@@ -5,6 +5,7 @@ jobs:
   manual_prepare:
     runs-on: Ubuntu-latest
     steps:
+      - uses: JasonEtco/smee-action@master
       - uses: actions/checkout@master
         with:
           fetch-depth: 0
