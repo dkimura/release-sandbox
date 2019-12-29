@@ -5,6 +5,7 @@ jobs:
   manual_prepare:
     runs-on: Ubuntu-latest
     steps:
+      - run: echo "::log-command parameter1={.deployment}"
       - uses: actions/checkout@master
         with:
           fetch-depth: 0
