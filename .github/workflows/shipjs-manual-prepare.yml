@@ -2,20 +2,9 @@
 name: Ship js Manual Prepare
 on: deployment
 jobs:
-  prepare:
-    runs-on: ubuntu-latest
-    if: "! contains(github.event.deployment.description, 'Heroku')"
-    steps:
-      - run: echo "${{ github.event.deployment.description }}"
-
   manual_prepare:
     runs-on: Ubuntu-latest
-    needs: prepare
     steps:
-      - name: Skip for Heroku deployments
-        env:
-          DESC: ${{ github.event.deployment.description }}
-        run: echo "$DESC"
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -46,17 +35,19 @@ jobs:
           fetch-depth: 0
           ref: master
       - uses: actions/setup-node@master
-      - run: yarn install
       - run: |
             git config --global user.email "dkimura@bdd.xyz"
             git config --global user.name "dkimura"
+      - run: yarn install
+        if: github.event.deployment.description != 'Heroku'
       - run: yarn release:prepare --yes --no-browse
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        if: github.event.deployment.description != 'Heroku'
 
-  create_fail_comment:
-    if: cancelled() || failure()
-    needs: manual_prepare
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "hoge"
+  # create_fail_comment:
+  #   if: cancelled() || failure()
+  #   needs: manual_prepare
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: echo "hoge"
