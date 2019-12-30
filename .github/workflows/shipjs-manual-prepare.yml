@@ -4,13 +4,12 @@ on: deployment
 jobs:
   manual_prepare:
     runs-on: Ubuntu-latest
-    if: "! contains(github.event.deployment.description, 'Heroku')"
+    if: "! contains(github.event.deployment.description, '[ci skip]')"
     steps:
-      # - name: Skip for Heroku deployments
-      #   env:
-      #     DESC: ${{ github.event.deployment.description }}
-      #   run: echo "$DESC"
-      #   if: github.event.deployment.description != 'Heroku'
+      - name: Skip for Heroku deployments
+        env:
+          DESC: ${{ github.event.deployment.description }}
+        run: echo "$DESC"
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
