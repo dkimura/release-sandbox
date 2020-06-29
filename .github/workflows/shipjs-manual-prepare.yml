@@ -1,9 +1,9 @@
-
 name: Ship js Manual Prepare
 on: deployment
 jobs:
   manual_prepare:
-    runs-on: Ubuntu-latest
+    if: github.event.deployment.description != 'Heroku'
+    runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
         env:
@@ -30,24 +30,20 @@ jobs:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
 
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
           ref: master
-      - uses: actions/setup-node@master
+      - uses: actions/setup-node@v1
       - run: |
-            git config --global user.email "dkimura@bdd.xyz"
-            git config --global user.name "dkimura"
-      - run: yarn install
-        if: github.event.deployment.description != 'Heroku'
-      - run: yarn release:prepare --yes --no-browse
+          if [ -f "yarn.lock" ]; then
+            yarn install
+          else
+            npm install
+          fi
+      - run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+      - run: npm run release -- --yes --no-browse
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        if: github.event.deployment.description != 'Heroku'
-
-  # create_fail_comment:
-  #   if: cancelled() || failure()
-  #   needs: manual_prepare
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - run: echo "hoge"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
