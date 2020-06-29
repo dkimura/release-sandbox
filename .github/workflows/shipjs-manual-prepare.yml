@@ -2,7 +2,7 @@ name: Ship js Manual Prepare
 on: deployment
 jobs:
   manual_prepare:
-    if: github.event.deployment.description == 'Heroku'
+    if: github.event.deployment.description != 'Heroku'
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
