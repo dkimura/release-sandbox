@@ -29,7 +29,6 @@ jobs:
   skip_job:
     if: cancelled()
     name: Skip Release
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
