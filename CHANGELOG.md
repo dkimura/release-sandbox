@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/dkimura/release-sandbox/compare/v1.4.0...v1.5.0) (2020-06-29)
+
+
+### Features
+
+* Replace shipjs github actions ([8ff1d1f](https://github.com/dkimura/release-sandbox/commit/8ff1d1fdf5d764606b0469b850a3354f51aaaac0))
+
+
+
 # [1.4.0](https://github.com/dkimura/release-sandbox/compare/v1.3.2...v1.4.0) (2019-12-18)
 
 
