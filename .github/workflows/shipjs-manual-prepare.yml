@@ -2,7 +2,7 @@ name: Ship js Manual Prepare
 on: deployment
 jobs:
   manual_prepare:
-    if: github.event.deployment.description != 'Heroku'
+    # if: github.event.deployment.description != 'Heroku'
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -47,13 +47,3 @@ jobs:
       - run: npm run release -- --yes --no-browse
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  skip_job:
-    if: cancelled()
-    needs: manual_prepare
-    runs-on: ubuntu-latest
-    steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
