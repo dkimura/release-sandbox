@@ -1,3 +1,13 @@
+# [1.5.0](https://github.com/dkimura/release-sandbox/compare/v1.4.0...v1.5.0) (2020-06-29)
+
+
+### Features
+
+* Add Skip job ([#41](https://github.com/dkimura/release-sandbox/issues/41)) ([06fc779](https://github.com/dkimura/release-sandbox/commit/06fc779e05a5102ad3f2643c5aee7bb4e827a408))
+* Replace shipjs github actions ([8ff1d1f](https://github.com/dkimura/release-sandbox/commit/8ff1d1fdf5d764606b0469b850a3354f51aaaac0))
+
+
+
 # [1.4.0](https://github.com/dkimura/release-sandbox/compare/v1.3.2...v1.4.0) (2019-12-18)
 
 
