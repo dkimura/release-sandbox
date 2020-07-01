@@ -2,29 +2,33 @@ name: Ship js Manual Prepare
 on: deployment
 jobs:
   manual_prepare:
-    # if: github.event.deployment.description != 'Heroku'
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+
       - name: Dump job context
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
         run: echo "$JOB_CONTEXT"
+
       - name: Dump steps context
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
         run: echo "$STEPS_CONTEXT"
+
       - name: Dump runner context
         env:
           RUNNER_CONTEXT: ${{ toJson(runner) }}
         run: echo "$RUNNER_CONTEXT"
+
       - name: Dump strategy context
         env:
           STRATEGY_CONTEXT: ${{ toJson(strategy) }}
         run: echo "$STRATEGY_CONTEXT"
+
       - name: Dump matrix context
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
@@ -35,15 +39,20 @@ jobs:
           fetch-depth: 0
           ref: master
       - uses: actions/setup-node@v1
+
       - run: |
           if [ -f "yarn.lock" ]; then
             yarn install
           else
             npm install
           fi
+
       - run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
+
       - run: npm run release -- --yes --no-browse
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          SLACK_INCOMING_HOOK: ${{ secrets.SLACK_INCOMING_HOOK }}
