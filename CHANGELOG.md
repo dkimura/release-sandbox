@@ -1,3 +1,12 @@
+# [1.6.0](https://github.com/dkimura/release-sandbox/compare/v1.5.0...v1.6.0) (2020-07-01)
+
+
+### Features
+
+* hoge to fuga ([#45](https://github.com/dkimura/release-sandbox/issues/45)) ([#49](https://github.com/dkimura/release-sandbox/issues/49)) ([6e1ac58](https://github.com/dkimura/release-sandbox/commit/6e1ac586920aa101fb025b7e819ccb1c63018ba9))
+
+
+
 # [1.5.0](https://github.com/dkimura/release-sandbox/compare/v1.4.0...v1.5.0) (2020-07-01)
 
 
