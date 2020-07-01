@@ -1,0 +1,13 @@
+name: Tags push case String and Asterisk
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  tag-echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump echo
+        run: echo "tags v*"

@@ -1,0 +1,13 @@
+name: Releases created hook
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  tag-echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump echo
+        run: echo "releases created"
