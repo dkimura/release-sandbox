@@ -2,7 +2,6 @@ name: Ship js Manual Prepare
 on: deployment
 jobs:
   manual_prepare:
-    if: github.event.deployment.description != 'Heroku'
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -40,6 +39,7 @@ jobs:
           fetch-depth: 0
           ref: master
       - uses: actions/setup-node@v1
+        if: github.event.deployment.description != 'Heroku'
 
       - run: |
           if [ -f "yarn.lock" ]; then
@@ -47,12 +47,15 @@ jobs:
           else
             npm install
           fi
+        if: github.event.deployment.description != 'Heroku'
 
       - run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
+        if: github.event.deployment.description != 'Heroku'
 
       - run: npm run release -- --yes --no-browse
+        if: github.event.deployment.description != 'Heroku'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
