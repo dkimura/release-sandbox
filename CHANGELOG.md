@@ -1,3 +1,12 @@
+# [1.7.0](https://github.com/dkimura/release-sandbox/compare/v1.6.0...v1.7.0) (2020-07-02)
+
+
+### Features
+
+* Replace fuga to hoge ([#51](https://github.com/dkimura/release-sandbox/issues/51)) ([0c11fd6](https://github.com/dkimura/release-sandbox/commit/0c11fd61f1a69f5776a940ed9173f3da3b0573d9))
+
+
+
 # [1.6.0](https://github.com/dkimura/release-sandbox/compare/v1.5.0...v1.6.0) (2020-07-01)
 
 
